@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package recommendation;
+
+// gRPC service for recommendation
+service Recommender {
+  // Method to get recommendations
+  rpc GetRecommendations(RecommendationRequest) returns (RecommendationResponse);
+}
+
+// Request message for getting recommendations
+message RecommendationRequest {
+  // User ID for which recommendations are requested
+  string user_id = 1;
+  // Number of recommendations to be returned
+  int32 num_recommendations = 2;
+}
+
+// Response message containing the recommended items
+message RecommendationResponse {
+  // List of recommended items
+  repeated string recommended_items = 1;
+}
