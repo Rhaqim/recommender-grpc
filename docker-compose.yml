@@ -1,0 +1,21 @@
+version: '3'
+services:
+  python-server:
+    build:
+      context: recommender
+      dockerfile: Dockerfile.python
+    ports:
+      - 50051:50051
+    volumes:
+      - ./python-server:/app
+    command: python server.py
+
+  golang-client:
+    build:
+      context: backend
+      dockerfile: Dockerfile.golang
+    ports:
+      - 8080:8080
+    volumes:
+      - ./golang-client:/app
+    command: go run cmd/app/main.go
