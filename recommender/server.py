@@ -14,7 +14,7 @@ def GetRecommendations(request, context):
     
     
     return recommender_pb2.RecommendationResponse(
-        recommendedItems = ["item1", "item2", "item3"]
+        recommended_items = ["item1", "item2", "item3"]
     )
 
 
