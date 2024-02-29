@@ -1,9 +1,8 @@
 from __future__ import print_function
 
-import logging
-
 import grpc
-from proto import recommender_pb2, recommender_pb2_grpc
+
+from recommender.proto import recommender_pb2, recommender_pb2_grpc
 
 
 def ger_recommendations(stub, user_id, num_recommendations):
@@ -23,8 +22,3 @@ def run():
         stub = recommender_pb2_grpc.RecommenderStub(channel)
         print("-------------- GetRecommendations --------------")
         ger_recommendations(stub, "user1", 5)
-
-
-if __name__ == "__main__":
-    logging.basicConfig()
-    run()
